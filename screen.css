@@ -1,0 +1,39 @@
+@import url(http://fonts.googleapis.com/css?family=Habibi&subset=latin,latin-ext);
+@import url(http://fonts.googleapis.com/css?family=Sorts+Mill+Goudy:400italic,400&subset=latin,latin-ext);
+
+html {
+	background-color: #fff8ea;
+}
+
+body {
+	font-family: 'Sorts Mill Goudy', Georgia, serif;
+	color: #5b3f0f;
+	font-size: 1.2em;
+}
+
+#main {
+	font-size: 1.2em;
+}
+#main h1 {
+	font-size: 2.3em;
+	font-style: italic;
+	margin: 0;
+	padding: 0;
+}
+
+#main p,		
+#main address {
+	font-size: 0.85em;
+}
+
+ul.dishes, ul.dishes li {
+	list-style: none;
+}
+
+ul.dishes li {
+	text-align: center;
+}
+
+ul.dishes li p span {
+	display: block;
+}

@@ -6,23 +6,65 @@
 		<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.3.0/build/cssreset/reset-min.css">
 		<link rel="stylesheet" type="text/css" href="screen.css">
 		<script src="modernizr.custom.40402.js" type="text/javascript"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+		<script src="filtering.js" type="text/javascript"></script>
 	</head>
 	<body>
 		<section id="main">
 			<h1>Luigi's</h1>
-			<p>Five-star Italian restaurant</p><address>42nd Street</address>
+			<p>Five-star Italian restaurant</p><address>42<sup>nd</sup> Street</address>
 			<p>Open until <span datetime="2012-01-04T23:00:00Z">23:00 tonight</span></p>
 		</section>
-		<section id="menu">
+		<section id="menu" 
+		data-filtering="[{ &quot;key&quot;: &quot;vegetarian&quot;, &quot;name&quot;: &quot;Vegetarian&quot;, &quot;-&quot;: [&quot;meat&quot;, &quot;seafood&quot;] }, { &quot;key&quot;: &quot;pesce&quot;, &quot;name&quot;: &quot;Pescetarian&quot;, &quot;-&quot;: [&quot;meat&quot;] }, { &quot;key&quot;: &quot;gluten&quot;, &quot;name&quot;: &quot;Gluten intolerant&quot;, &quot;-&quot;: [&quot;gluten&quot;] }, { &quot;key&quot;: &quot;olive&quot;, &quot;name&quot;: &quot;Olive hater&quot;, &quot;-&quot;: [&quot;olive&quot;, &quot;olive-oil&quot;] }]" data-filteringpreamble="Allergies and preferences">
 			<h2>Menu</h2>
-			<section class="sub">
-			<h3>Entrées</h3>
-			<ul class="dishes">
-				<li item-scope data-char="tomato garlic carbs bread olive-oil">
-					<h4>Bruschetta</h4>
-					<p><span>Chopped fresh tomatoes</span><span>with garlic, basil, olive oil, and vinegar,</span><span>served on toasted slices of freshly-baked Italian ciabatta</span></p>
-				</li>
-			</ul>
+			<section class="sub" data-menukind="food">
+				<h3><em>Antipasti</em> <small>Entrées</small></h3>
+				<ul class="dishes">
+					<li item-scope data-char="tomato garlic carbs bread olive-oil gluten">
+						<h4>Bruschetta</h4>
+						<p><span>Chopped fresh tomatoes</span><span>with garlic, basil, olive oil, and vinegar,</span><span>served on toasted slices of Italian ciabatta</span></p>
+					</li>
+					<li item-scope data-char="meat venison rucola salad artichoke parmesan olive-oil lemon olive">
+						<h4>Carpaccio</h4>
+						<p><span>Thinly sliced, raw venison</span><span>with rucola salad, heart of artichoke,</span><span>shaved parmesan, olive oil, lemon</span><span>and green  olives</span></p>
+					</li>
+				</ul>
+			</section>
+			<section class="sub" data-menukind="food">
+				<h3><em>Insalate</em> <small>Salads</small></h3>
+				<ul class="dishes">
+					<li item-scope data-char="salad rucola tomato cucumber pepper onion olive" id="saladbase">
+						<p>
+							<span>All salads include rucola, tomatoes,</span>
+							<span>cucumber, pepper, onion and olives</span>
+						</p>
+					</li>
+					<li item-scope data-char="chicken meat" data-charbasedon="#saladbase">
+						<h4>Insalata di pollo</h4>
+						<p><span>Chicken salad</span></p>
+					</li>
+					<li item-scope data-char="parma-ham mozzarella meat" data-charbasedon="#saladbase">
+						<h4>Insalata di prosciutto crudo</h4>
+						<p><span>Parma ham salad with mozzarella</span></p>
+					</li>
+				</ul>
+			</section>
+			<section class="sub" data-menukind="food">
+				<h3><em>Pizza</em> <small>Italian pizza</small></h3>
+				<ul class="dishes">
+					<li item-scope data-char="wheat tomato-sauce" id="pizzabase">
+						<p><span>All pizzas have a tomato sauce base</span></p>
+					</li>
+					<li item-scope data-char="basil mozzarella" data-charbasedon="#pizzabase">
+						<h4>Margherita</h4>
+						<p><span>Basil and mozzarella di bufala</span></p>
+					</li>
+					<li item-scope data-char="basil shrimp seafood" data-charbasedon="#pizzabase">
+						<h4>Scampi</h4>
+						<p><span>Basil and shrimp</span></p>
+					</li>
+				</ul>
 			</section>
 		</section>
 	</body>
